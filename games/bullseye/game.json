@@ -1,0 +1,13 @@
+{
+  "id": "bullseye",
+  "name": "Bullseye",
+  "version": "1.0.0",
+  "description": "Stop the needle inside the zone. The zone shrinks with every hit.",
+  "tags": ["timing", "precision"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 15,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 4,
+  "theme": { "top": "#132E20", "bottom": "#2C5A2B", "accent": "#D6FF63" }
+}

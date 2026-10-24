@@ -1,0 +1,13 @@
+{
+  "id": "pop",
+  "name": "Pop",
+  "version": "1.0.0",
+  "description": "Pop every bubble before its ring runs out. Three escapes end the round.",
+  "tags": ["reflex", "tap"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 30,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 3,
+  "theme": { "top": "#3A1230", "bottom": "#7A2550", "accent": "#FF5C8A" }
+}

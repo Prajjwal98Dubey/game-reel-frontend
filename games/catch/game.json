@@ -1,0 +1,13 @@
+{
+  "id": "catch",
+  "name": "Catch",
+  "version": "1.0.0",
+  "description": "Catch the fruit, dodge the bombs. Miss three fruit and the round ends.",
+  "tags": ["drag", "arcade"],
+  "controls": ["drag-x"],
+  "avgRoundSeconds": 40,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 3,
+  "theme": { "top": "#241B55", "bottom": "#4B2C83", "accent": "#8A6BFF" }
+}

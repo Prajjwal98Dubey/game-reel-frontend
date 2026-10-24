@@ -1,0 +1,4 @@
+games/dist
+node_modules
+.expo
+game-sdk/template.html

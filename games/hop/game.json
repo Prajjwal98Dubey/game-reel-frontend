@@ -1,0 +1,13 @@
+{
+  "id": "hop",
+  "name": "Hop",
+  "version": "1.0.0",
+  "description": "Tap to flap through the gaps. One touch on a pillar ends the run.",
+  "tags": ["reflex", "endless"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 20,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 1,
+  "theme": { "top": "#0E3B4F", "bottom": "#1E7D80", "accent": "#FFD23F" }
+}

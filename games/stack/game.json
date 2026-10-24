@@ -1,0 +1,13 @@
+{
+  "id": "stack",
+  "name": "Stack",
+  "version": "1.0.0",
+  "description": "Drop each block on the last one. Whatever hangs over the edge gets cut.",
+  "tags": ["timing", "one-tap"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 25,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 3,
+  "theme": { "top": "#2B1840", "bottom": "#5A2A4A", "accent": "#FF9F1C" }
+}
