@@ -42,6 +42,5 @@ yarn-error.*
 
 # built game bundles (npm run games:build)
 games/dist/
+*.md
 
-FRONTEND.md
-REF_BACKEND.md

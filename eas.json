@@ -1,5 +1,5 @@
 {
-  "cli": { "appVersionSource": "local" },
+  "cli": { "appVersionSource": "remote" },
   "build": {
     "development": {
       "developmentClient": true,
@@ -9,6 +9,7 @@
     "staging": {
       "distribution": "internal",
       "channel": "staging",
+      "autoIncrement": true,
       "env": {
         "EXPO_PUBLIC_ENV": "staging",
         "EXPO_PUBLIC_API_URL": "https://api2.my-wiki.xyz"
