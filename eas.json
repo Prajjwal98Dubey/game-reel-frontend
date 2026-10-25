@@ -9,11 +9,17 @@
     "staging": {
       "distribution": "internal",
       "channel": "staging",
-      "env": { "EXPO_PUBLIC_ENV": "staging" }
+      "env": {
+        "EXPO_PUBLIC_ENV": "staging",
+        "EXPO_PUBLIC_API_URL": "https://api2.my-wiki.xyz"
+      }
     },
     "production": {
       "channel": "production",
-      "env": { "EXPO_PUBLIC_ENV": "production" }
+      "env": {
+        "EXPO_PUBLIC_ENV": "production",
+        "EXPO_PUBLIC_API_URL": "https://api2.my-wiki.xyz"
+      }
     }
   }
 }

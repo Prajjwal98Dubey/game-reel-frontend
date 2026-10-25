@@ -8,6 +8,8 @@ import { ApiError, ContractError } from './errors';
 
 type Method = 'GET' | 'POST';
 
+const REQUEST_TIMEOUT_MS = 15_000;
+
 type RequestOptions<S extends z.ZodType | undefined> = {
   method?: Method;
   body?: unknown;
@@ -66,12 +68,24 @@ async function send<S extends z.ZodType | undefined>(
   if (opts.body !== undefined) headers['Content-Type'] = 'application/json';
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(buildUrl(path, opts.query), {
-    method: opts.method ?? 'GET',
-    headers,
-    body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
-    signal: opts.signal,
-  });
+  // A stalled connection must fail (and be retried) rather than hang the screen forever.
+  const timeout = new AbortController();
+  const timer = setTimeout(() => timeout.abort(), REQUEST_TIMEOUT_MS);
+  const abort = () => timeout.abort();
+  if (opts.signal?.aborted) abort();
+  else opts.signal?.addEventListener('abort', abort);
+  let res: Response;
+  try {
+    res = await fetch(buildUrl(path, opts.query), {
+      method: opts.method ?? 'GET',
+      headers,
+      body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
+      signal: timeout.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+    opts.signal?.removeEventListener('abort', abort);
+  }
   if (!res.ok) throw await ApiError.fromResponse(res);
   if (!opts.schema) return undefined as Result<S>;
 

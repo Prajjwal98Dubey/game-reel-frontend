@@ -37,6 +37,24 @@ type Props = {
 };
 
 /**
+ * Whether the outer box gets its height from its own style rather than from the face. Only then
+ * may the face grow to fill it: a growing face inside an unsized box takes all the space Yoga
+ * offers (on Android it stretched the launch-screen logo to the full screen height).
+ */
+function hasFixedSize(style: StyleProp<ViewStyle>): boolean {
+  const s = StyleSheet.flatten(style);
+  if (!s) return false;
+  return (
+    s.height != null ||
+    s.minHeight != null ||
+    s.flex != null ||
+    s.flexGrow != null ||
+    s.flexBasis != null ||
+    s.aspectRatio != null
+  );
+}
+
+/**
  * The base surface of the Sticker Deck design (§17.3, §17.7): a flat fill with an ink outline and a
  * hard ink shadow offset down-right. The shadow is a solid "back plate" behind the face, so it never
  * blurs on any platform. Pressing pushes the face onto the plate (the shadow disappears) and it
@@ -71,6 +89,7 @@ export function Sticker({
     <Animated.View
       style={[
         styles.face,
+        hasFixedSize(style) && styles.fill,
         {
           backgroundColor: colors[fill],
           borderRadius: radius,
@@ -137,7 +156,8 @@ export function Sticker({
 const styles = StyleSheet.create({
   outer: { position: 'relative' },
   plate: { position: 'absolute', backgroundColor: colors.ink },
-  face: { flexGrow: 1, borderColor: colors.ink },
+  face: { borderColor: colors.ink },
+  fill: { flexGrow: 1 },
   clip: { overflow: 'hidden' },
   disabled: { opacity: 0.55 },
 });
