@@ -34,7 +34,7 @@ This folder is the `apps/mobile` package from FRONTEND.md §4. Until the monorep
 |---|---|---|
 | `src/shared/` | `packages/shared` | zod schemas, bridge protocol, analytics event types |
 | `game-sdk/` | `packages/game-sdk` | runtime shell that runs inside the WebView (canvas, loop, input, bridge) |
-| `games/<id>/` | `packages/games/<id>` | the five prototype games, ported to the SDK and its seeded RNG |
+| `games/<id>/` | `packages/games/<id>` | the games (five prototypes plus Orbit, Mirror, Prism, Echo and Flip), on the SDK and its seeded RNG |
 | `scripts/mock-api.mjs` | (dev only) | in-memory implementation of `/v1` for working without the backend |
 
 ```

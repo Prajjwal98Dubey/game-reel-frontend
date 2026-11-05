@@ -1,0 +1,13 @@
+{
+  "id": "prism",
+  "name": "Prism",
+  "version": "1.0.0",
+  "description": "Tap to turn the colour wheel so each falling drop lands on its own colour. Three misses end the round.",
+  "tags": ["colour", "reflex"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 35,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 2,
+  "theme": { "top": "#1C1430", "bottom": "#3B1F4F", "accent": "#FF5C8A" }
+}

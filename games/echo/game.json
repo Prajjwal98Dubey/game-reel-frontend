@@ -1,0 +1,13 @@
+{
+  "id": "echo",
+  "name": "Echo",
+  "version": "1.0.0",
+  "description": "Repeat the pattern of lights. Later on, pads swap places, so follow the colour, not the spot.",
+  "tags": ["memory", "brain"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 45,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 3,
+  "theme": { "top": "#10241F", "bottom": "#1D4A3C", "accent": "#7BE0B5" }
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="480" viewBox="0 0 360 480">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10241F"/><stop offset="1" stop-color="#1D4A3C"/></linearGradient></defs>
+  <rect width="360" height="480" fill="url(#g)"/>
+  <rect x="62" y="110" width="110" height="110" rx="20" fill="#FF5C8A" fill-opacity="0.45"/>
+  <rect x="188" y="110" width="110" height="110" rx="20" fill="#FFD23F"/>
+  <rect x="182" y="104" width="122" height="122" rx="24" fill="none" stroke="#F6F5FA" stroke-width="5"/>
+  <rect x="62" y="236" width="110" height="110" rx="20" fill="#5BC0FF" fill-opacity="0.45"/>
+  <rect x="188" y="236" width="110" height="110" rx="20" fill="#7BE0B5" fill-opacity="0.45"/>
+  <path d="M120 360 Q180 400 240 360" fill="none" stroke="#F6F5FA" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round"/>
+  <path d="M232 352 L242 360 L230 366" fill="none" stroke="#F6F5FA" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="152" cy="410" r="5" fill="#F6F5FA"/>
+  <circle cx="170" cy="410" r="5" fill="#F6F5FA"/>
+  <circle cx="188" cy="410" r="5" fill="#F6F5FA" fill-opacity="0.3"/>
+  <circle cx="206" cy="410" r="5" fill="#F6F5FA" fill-opacity="0.3"/>
+</svg>

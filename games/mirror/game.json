@@ -1,0 +1,13 @@
+{
+  "id": "mirror",
+  "name": "Mirror",
+  "version": "1.0.0",
+  "description": "Steer two orbs that move as reflections. Some gaps fit only one, so both must find a way through.",
+  "tags": ["drag", "brain"],
+  "controls": ["drag-x"],
+  "avgRoundSeconds": 30,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 2,
+  "theme": { "top": "#14202B", "bottom": "#1F3A4A", "accent": "#5BC0FF" }
+}

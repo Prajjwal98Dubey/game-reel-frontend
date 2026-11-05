@@ -1,0 +1,13 @@
+{
+  "id": "orbit",
+  "name": "Orbit",
+  "version": "1.0.0",
+  "description": "Your moon circles the planet. Tap to reverse, grab each star before it burns out, and never touch a comet.",
+  "tags": ["reflex", "one-tap"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 30,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 2,
+  "theme": { "top": "#0E1838", "bottom": "#1E2E66", "accent": "#FFD23F" }
+}
