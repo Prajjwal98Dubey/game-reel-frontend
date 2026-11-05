@@ -1,0 +1,68 @@
+# Pull requests: lint, typecheck and tests.
+# Merge to main (or a manual run): the same checks, then an Android `staging` cloud build on EAS.
+#
+# A finished staging build fires the EAS webhook, so the backend records it and the download
+# website's button and QR switch to the new APK. The versionCode goes up on EAS by itself
+# (eas.json: appVersionSource "remote", autoIncrement on staging), so nothing here bumps it.
+#
+# Needs one repository secret: EXPO_TOKEN (an expo.dev access token for the project owner).
+name: Android release
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    # Doc-only merges don't need a new APK (and builds count against the EAS plan).
+    paths-ignore:
+      - '**/*.md'
+  workflow_dispatch:
+
+# One release at a time; a newer merge waits for the running one instead of cancelling it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || 'release' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint, typecheck, test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test -- --ci
+
+  build:
+    name: EAS build (android, staging)
+    needs: checks
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - run: npm ci
+
+      # --no-wait: the job ends once EAS accepts the build; EAS builds it and fires the webhook.
+      - name: Start the build
+        run: eas build --platform android --profile staging --non-interactive --no-wait
