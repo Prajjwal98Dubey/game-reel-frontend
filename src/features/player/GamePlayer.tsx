@@ -110,16 +110,18 @@ export const GamePlayer = forwardRef<GamePlayerHandle, Props>(function GamePlaye
 
   return (
     <View style={styles.root}>
-      {/* The game only takes touches during a live round; before and after one, swipes must reach the feed. */}
-      <View style={StyleSheet.absoluteFill} pointerEvents={state === 'playing' ? 'auto' : 'none'}>
-        <GameWebView
-          key={session.loadKey}
-          ref={webviewRef}
-          uri={game.bundleUrl}
-          onMessage={session.handleMessage}
-          onLoadError={session.onLoadError}
-        />
-      </View>
+      {/*
+        The game stays touchable in every state: the runtime ignores input outside a live round, and
+        vertical swipes reach the feed as they do mid-round. Toggling pointerEvents here instead made
+        Android move focus off the WebView to the next reel's, and the feed scrolled to it.
+      */}
+      <GameWebView
+        key={session.loadKey}
+        ref={webviewRef}
+        uri={game.bundleUrl}
+        onMessage={session.handleMessage}
+        onLoadError={session.onLoadError}
+      />
 
       {state === 'loading' && <LoadingOverlay thumbnailUrl={game.thumbnailUrl} />}
       {(state === 'playing' || state === 'paused') && <ScoreSticker score={session.score} top={scoreTop} />}
