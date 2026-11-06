@@ -1,0 +1,13 @@
+{
+  "id": "flip",
+  "name": "Flip",
+  "version": "1.0.0",
+  "description": "Tap to flip gravity and run on the ceiling. Dodge the blocks on both rails for as long as you can.",
+  "tags": ["timing", "endless"],
+  "controls": ["tap"],
+  "avgRoundSeconds": 25,
+  "minAppVersion": "1.0.0",
+  "sdkVersion": 1,
+  "maxScorePerSec": 2,
+  "theme": { "top": "#2A1A12", "bottom": "#5A3220", "accent": "#FFD23F" }
+}
